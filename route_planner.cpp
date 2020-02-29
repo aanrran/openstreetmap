@@ -117,8 +117,9 @@ void RoutePlanner::AStarSearch() {
   // TODO: Implement your solution here.
   //set current node to the begining
   this->start_node->visited = true;
+  this->start_node->h_value =CalculateHValue(this->start_node);
   current_node = this->start_node;
-  this->AddNeighbors(current_node);
+  this->open_list.push_back(current_node);
   
   while(open_list.size() > 0){
     current_node = NextNode();
